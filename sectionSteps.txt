@@ -1,0 +1,18 @@
+Flutter Themes:
+way to define custom look & feel and custom color palette
+https://flutter.dev/docs/cookbook/design/themes
+
+Create app theme to share styling and color across app
+-> needs ThemeData Widget
+
+1. Create an overall material theme
+2. Delete and use DarkTheme override .copyWith to use DarkTheme but change a few apsects
+3. Sample FlatButton local override Theme by wrapping Flatbutton in Theme Widget
+4. Comment out Flatbutton as no longer needed
+
+5. separate screens into different files:
+5.1 create file "input_page.dart"
+5.2 cut & paste Input Page Stateful Widget from main.dart -> input_page.dart
+5.3 add input_page.dart as import to main.dart
+
+
