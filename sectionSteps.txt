@@ -26,8 +26,8 @@ Create app theme to share styling and color across app
 6.8. add required props in all calls
 6.9. add pin container as "Button" at the bottom within Column children[]
 6.10 add constants at the top for easier access - bottomContainerHeight and replace height
-6.11 add const activeCardColor at the top for init and replace params at obj instatiation
-6.12 add const bottomContainerColour at the top for init and replace params at obj instatiation
+6.11 add const activeCardColor at the top for init and replace params at obj instantiation
+6.12 add const bottomContainerColour at the top for init and replace params at obj instantiation
 
 7. L116 - Create custom Flutter Widget
 7.1 create custom child property called cardChild in ReusableCard class and add to constr
@@ -37,8 +37,12 @@ Create app theme to share styling and color across app
 8.1 get font_awesome_flutter package from pub.dev
 8.2 add cardChild to first container with Icon mars (male) and Text "Male"
 STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in pubspec.yaml
-8.3 add MainAxisAlighment.center to Column to center info on cardChild
-
+8.3 add MainAxisAlignment.center to Column to center info on cardChild
+8.4 extract Column with all props into separate class IconContent, add props IconData (cardIcon) & Text and constr, change Text & Icon in IconContent class to reflect these changes
+(replace FontAwesome.mars with cardIcon (all of it incl. FontAwesome!)
+8.5 separate IconContent & Reusable Card into sep files (icon_content.dart &  reusable_card.dart
+8.6 create const for height & size in icon_content.dart
+8.6a labelTextstyle
 
 
 
