@@ -7,12 +7,28 @@ Create app theme to share styling and color across app
 
 1. Create an overall material theme
 2. Delete and use DarkTheme override .copyWith to use DarkTheme but change a few apsects
-3. Sample FlatButton local override Theme by wrapping Flatbutton in Theme Widget
-4. Comment out Flatbutton as no longer needed
+3. Sample FlatButton local override Theme by wrapping FlatButton in Theme Widget
+4. Comment out FlatButton as no longer needed
 
 5. separate screens into different files:
 5.1 create file "input_page.dart"
 5.2 cut & paste Input Page Stateful Widget from main.dart -> input_page.dart
 5.3 add input_page.dart as import to main.dart
+
+6. Create Cards
+6.1 delete content of scaffold on input_page
+6.2 add body Container, Color (0xFF1D1E33), height 200, width 170, margin (all) 15, borderradius via decoration property - > need to move Color to decoration so it doesn't crash!
+6.3. delete height and width and replace with expanded widgets
+6.4 as there are many repeats - Refactor code -> extract containers with "extract widget" from FLutter Outline - delete new (deprecated)
+6.5 delete constr of new class   const ReusableCard({ Key key, }) : super(key: key);
+6.6 create own constructor
+6.7 create property colour and make it a @required prop
+6.8. add required props in all calls
+
+
+
+
+
+
 
 
