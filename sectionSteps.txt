@@ -44,6 +44,17 @@ STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in p
 8.6 create const for height & size in icon_content.dart
 8.6a labelTextstyle
 
+9. L-117 GestureDector Widget - make iconCards interactive
+9.1 - 2 options: wrap ReusableCard in FlatButton (changes styling -use if material button is needed) or GestureDetector (used here to keep styling) - wrap in Gesture Detector, add onTap
+9.2 change color of male & female card on tap
+    9.2a create const for inactive Color,
+    9.2b init Male & Female Card with new params (maleCardColour and femaleCardColour) within state class
+    9.2c change colour prop of male and female card to maleCardColour and femaleCardColour
+    9.2d create method updateColour()
+    9.2e update onTap with setState(updateColour(gender))
+    9.2f switch off other male/female active colour
+
+
 
 
 
