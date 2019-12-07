@@ -73,3 +73,24 @@ STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in p
 12.2b add func to constr
 12.2c  relate onTap with onPress
 12.3 add onPress to input_page ReusableCard and define anonymoous func to setState
+
+13- L-121 Add Slider to middle ReusableCard
+13.1 add cardChild to ReusableCard Column
+13.2 as we want the same text style for all cards -refactor TextStyle const from input_page to dedicated const file
+13.2a create constants.dart
+13.2b cut&paste labelTextStyle from icon_content.dart to constants.dart
+13.2c cut&paste color & bottomContainerHeight from input_page to constants.dart
+13.2d import constant.dart in input_page.dart and icon_content.dart to be able to refer
+13.3 refactor all consts to start with k as per naming convention
+13.4 add TextStyle kLabelTextStyle to input_page ReusableClass 'HEIGHT' Text Widget
+13.5 add CrossAxisAlignment.stretch at TOP COLUMN to restretch Card
+13.6. add ROW in Middle Reusable card after HEIGHT Text for height & cm + Text for 180
+13.7 create const for 13.6. number style and link
+13.8 create Text Widget for cm
+13.9 add mainAxisAlignment.center to top column to center vertically
+13.10 add mainAxisAlignment to local ROW to center horizontally
+13.11 (a&b) get cm to baselline by adding crossAxisAlignment.baseline in ROW - needs additional textBaseline to function!!
+13.12 add material design slider
+13.12a add int height as prop to class InputPage with default value of 180
+13.12b change '180' to receive int height as String!
+13.12c add to Slider() -> height as double, min, max, activeColor, inactiveColor, onChanged (newValue) gets passed from slider

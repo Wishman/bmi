@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-// 8.6 move LabelTextStyle here for quick updating
-const labelTextStyle = TextStyle(fontSize: 18.0, color: Color(0xFF8d8E98));
+import 'constants.dart'; // 13.2d
 
 // 8.4
 class IconContent extends StatelessWidget {
@@ -22,7 +20,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label, // 8.4
-          style: labelTextStyle, // 8.6
+          style: kLabelTextStyle, // 8.6
         )
       ],
     );
