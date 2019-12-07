@@ -17,9 +17,11 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   // 9.2b - init with starting value inactive
-  Color maleCardColour = inactiveCardColour;
-  Color femaleCardColour = inactiveCardColour;
+  //Color maleCardColour = inactiveCardColour;  // no longer needed as per 11
+  //Color femaleCardColour = inactiveCardColour;  // no longer needed as per 11
+  Gender selectedGender; // 11.1 create selected Gender Enum
 
+  /* no longer needed as of Step 10
   // 9.2c - 1 = male, 2 = female, change color to other state
   void updateColour(Gender selectedGender) {
     // 10.2a replace int Gender with enum
@@ -41,6 +43,7 @@ class _InputPageState extends State<InputPage> {
       }
     }
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +62,14 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColour(Gender.male); // 9.2e bzw. 10.3a
+                        //updateColour(Gender.male); // 9.2e bzw. 10.3a
+                        selectedGender = Gender.male; // 11.2a change card
                       });
                     },
                     child: ReusableCard(
-                      colour: maleCardColour, // 9.2c
+                      //colour: maleCardColour, // 9.2c
+                      // 11.3a set active color for male if selected
+                      colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
                       // 8.2 add cardChild
                       cardChild: new IconContent(
                         // 8.4
@@ -78,11 +84,15 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColour(Gender.female); // 9.2e bzw. 10.3b
+                        // updateColour(Gender.female); // 9.2e bzw. 10.3b
+                        selectedGender = Gender.female; // 11.2b change card
                       });
                     },
                     child: ReusableCard(
-                      colour: femaleCardColour, // 9.2c
+                      // colour: femaleCardColour, // 9.2c
+                      //11.3b  set active colour if selected
+                      colour:
+                          selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
                       cardChild: IconContent(
                         // 8.4
                         cardIcon: FontAwesomeIcons.venus,

@@ -60,6 +60,8 @@ STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in p
 10.3 a&b update setState() | updateColour() methodcalls for male & female
 
 
-
-
+11. L-119 Ternary Operators: replace long if statement with ternary operator
+11.1 instantiate selectedGender enum (init value null)
+11.2 (a&b) change cards for male and  female in respective setStates()
+11.3 (a&b) change colour: prop to active/inactive based on male/female selection with ternary
 
