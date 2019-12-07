@@ -54,6 +54,11 @@ STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in p
     9.2e update onTap with setState(updateColour(gender))
     9.2f switch off other male/female active colour
 
+10. L-118 Enums: replace int Gender with enum Gender
+10.1 add enum Gender at top (enums cannot be in classes, no ; at the end!!
+10.2 a,b&c update if statement in updateColour()
+10.3 a&b update setState() | updateColour() methodcalls for male & female
+
 
 
 
