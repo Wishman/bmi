@@ -65,3 +65,11 @@ STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in p
 11.2 (a&b) change cards for male and  female in respective setStates()
 11.3 (a&b) change colour: prop to active/inactive based on male/female selection with ternary
 
+12. L- 120 Dart Funcs as first order obj (pass funcs as if they were objects)
+    Task: upgrade ReusableCard to include GestureDetector
+12.1 delete GestureDetectors in input_page & wrap container of ReusableCard Class in GestureContainer
+12.2. add tap handling func to ReusableCard Class
+12.2a add func stump
+12.2b add func to constr
+12.2c  relate onTap with onPress
+12.3 add onPress to input_page ReusableCard and define anonymoous func to setState

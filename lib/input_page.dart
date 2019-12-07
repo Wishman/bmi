@@ -59,45 +59,40 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   // 9.1
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    //12.3 assign anon func with setState to onPress Func Prop
+                    onPress: () {
                       setState(() {
-                        //updateColour(Gender.male); // 9.2e bzw. 10.3a
-                        selectedGender = Gender.male; // 11.2a change card
+                        selectedGender = Gender.male;
                       });
                     },
-                    child: ReusableCard(
-                      //colour: maleCardColour, // 9.2c
-                      // 11.3a set active color for male if selected
-                      colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
-                      // 8.2 add cardChild
-                      cardChild: new IconContent(
-                        // 8.4
-                        cardIcon: FontAwesomeIcons.mars,
-                        label: 'MALE',
-                      ),
+                    //colour: maleCardColour, // 9.2c
+                    // 11.3a set active color for male if selected
+                    colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
+                    // 8.2 add cardChild
+                    cardChild: new IconContent(
+                      // 8.4
+                      cardIcon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
                   ),
                 ),
                 Expanded(
                   // 9.1
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    //12.3 as above but for females
+                    onPress: () {
                       setState(() {
-                        // updateColour(Gender.female); // 9.2e bzw. 10.3b
-                        selectedGender = Gender.female; // 11.2b change card
+                        selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableCard(
-                      // colour: femaleCardColour, // 9.2c
-                      //11.3b  set active colour if selected
-                      colour:
-                          selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
-                      cardChild: IconContent(
-                        // 8.4
-                        cardIcon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
-                      ),
+                    // colour: femaleCardColour, // 9.2c
+                    //11.3b  set active colour if selected
+                    colour: selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
+                    cardChild: IconContent(
+                      // 8.4
+                      cardIcon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
                     ),
                   ),
                 )
