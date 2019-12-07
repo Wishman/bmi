@@ -94,3 +94,11 @@ STOP APP and run from SCRATCH (= cold restart)! whenever you do package get in p
 13.12a add int height as prop to class InputPage with default value of 180
 13.12b change '180' to receive int height as String!
 13.12c add to Slider() -> height as double, min, max, activeColor, inactiveColor, onChanged (newValue) gets passed from slider
+
+14. L-122 Customizing Widgets with themes
+Task: change slider design to match custom needs - SliderTheme
+14.1 SliderTheme on top of Slider
+14.2 to only tweak a few props, don't use SliderThemeData or you have to set ALL properties, instead use SliderTheme.of(context).copyWith()
+14.3 thumbColor doesn't react to color change, as activeColor in Slider overrides it -> delete activeColor in slider and add activeTrackColor in SliderTheme
+14.4 optional - move SliderTheme to main.dart to make all sliders look like this
+14.5 move inactiveColor into Slidertheme as inactiveTrackColor for consistency

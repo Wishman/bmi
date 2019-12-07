@@ -17,7 +17,7 @@ class _InputPageState extends State<InputPage> {
   //Color femaleCardColour = inactiveCardColour;  // no longer needed as per 11
   Gender selectedGender; // 11.1 create selected Gender Enum
 
-  int height = 180; // 13.12a
+  int height = 170; // 13.12a 170 is exactly in the middle
 
   /* no longer needed as of Step 10
   // 9.2c - 1 = male, 2 = female, change color to other state
@@ -128,18 +128,31 @@ class _InputPageState extends State<InputPage> {
                       ),
                     ],
                   ),
-                  Slider(
-                    //13.12c
-                    value: height.toDouble(),
-                    min: 120.0,
-                    max: 220.0,
-                    activeColor: Color(0xFFEB1555),
-                    inactiveColor: Color(0xFF8D8E98),
-                    onChanged: (double newValue) {
-                      setState(() {
-                        height = newValue.round(); // .round() to cast double to int!!
-                      });
-                    },
+                  SliderTheme(
+                    // 14.1
+                    data: SliderTheme.of(context).copyWith(
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 22.5),
+                      overlayColor: Color(0x33EB1555), // 20% opacity, same pink
+                      thumbColor: Color(0xFFEB1555), // 100% opacity, same pink
+                      activeTrackColor: Colors.white, // 14.3
+                      inactiveTrackColor: Color(0xFF8D8E98), // 14.4 just for consistency here
+                    ), //14.2 gives copy of SliderTheme and allows for indiv changes
+
+                    child: Slider(
+                      //13.12c
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                      //activeColor: Colors.white, //14.3 deactivate for SliderTheme, normally needed!
+                      //inactiveColor: Color(0xFF8D8E98), // 14.4 deactivate and moved to SliderTheme (only for
+                      // consistency)
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round(); // .round() to cast double to int!!
+                        });
+                      },
+                    ),
                   ), // 13.12 add slider
                 ],
               ),
