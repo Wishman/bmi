@@ -102,3 +102,12 @@ Task: change slider design to match custom needs - SliderTheme
 14.3 thumbColor doesn't react to color change, as activeColor in Slider overrides it -> delete activeColor in slider and add activeTrackColor in SliderTheme
 14.4 optional - move SliderTheme to main.dart to make all sliders look like this
 14.5 move inactiveColor into Slidertheme as inactiveTrackColor for consistency
+
+15. L-123 Building a Flutter Widget from Scratch (Composition vs Inheritance):
+Task: build final Row with two cards by building own Widgets
+15.1 add cardChild to first ReusableCards in 3rd Row with alignment, Text (Weight) with labelTextStle
+15.2 (a&b) add variable at top to store weight; add weight var to new Text widget in ReusableCard .toString and use numberTextStyle
+15.3 add minus & plus buttons - add Row and within Row(centered along main axis)
+15.3a add FloatingActionButton (FAB) with plus icon
+15.3b add FAB with minus icon
+

@@ -18,6 +18,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender; // 11.1 create selected Gender Enum
 
   int height = 170; // 13.12a 170 is exactly in the middle
+  int weight = 60; // 15.2a
 
   /* no longer needed as of Step 10
   // 9.2c - 1 = male, 2 = female, change color to other state
@@ -166,6 +167,46 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColour,
+                    // 15.1a
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        // 15.2b display weight var
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        // 15.3
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            // 15.3a
+                            FloatingActionButton(
+                              backgroundColor: Color(0xFF4C4F5E),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                            // 15.3b
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            FloatingActionButton(
+                              backgroundColor: Color(0xFF4C4F5E),
+                              child: Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
