@@ -101,7 +101,7 @@ Task: change slider design to match custom needs - SliderTheme
 14.2 to only tweak a few props, don't use SliderThemeData or you have to set ALL properties, instead use SliderTheme.of(context).copyWith()
 14.3 thumbColor doesn't react to color change, as activeColor in Slider overrides it -> delete activeColor in slider and add activeTrackColor in SliderTheme
 14.4 optional - move SliderTheme to main.dart to make all sliders look like this
-14.5 move inactiveColor into Slidertheme as inactiveTrackColor for consistency
+14.5 move inactiveColor into SliderTheme as inactiveTrackColor for consistency
 
 15. L-123 Building a Flutter Widget from Scratch (Composition vs Inheritance):
 Task: build final Row with two cards by building own Widgets
@@ -110,4 +110,24 @@ Task: build final Row with two cards by building own Widgets
 15.3 add minus & plus buttons - add Row and within Row(centered along main axis)
 15.3a add FloatingActionButton (FAB) with plus icon
 15.3b add FAB with minus icon
-
+-- now create own RawMaterial Button inside Row()
+15.4 create stateless widget at bottom RoundIconButton (RIB) from RawMaterialButton with circular shape and own bgColor
+15.5 (a&b) replace FAB with RIB for both buttons
+15.6 add Size constraint as per RawMaterialButton implementation (just copy from there)
+15.7 add elevation-> without onPressed - Button is in disabled state!! add empty onPressed()
+15.8 add empty child prop for different icons -
+15.8 (a) create a Icon var,
+15.8 (b) init constr,
+15.8 (c) use in child:Icon
+15.8 (d) create RIB with FontAwesome plus icon
+15.9 copy&paste for minus button FontAwesome minus
+15.10 add functionality for onPressed:
+15.10 (a)  add Final Function onTapped to class
+15.10 (b) add  this.onTapped to constr
+15.10 (c) add onPressed: onTapped in class props
+15.10 (d) add onTapped logic to RIB with weight+=1
+15.11 same for minus
+15.12 add @required for icon and onTapped in constr
+15.13 add Age card func to last card
+15.13 (a) - add age var
+15.13 (b) copy and paste column of WEIGHT card and change all weight to age

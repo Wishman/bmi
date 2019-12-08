@@ -19,6 +19,7 @@ class _InputPageState extends State<InputPage> {
 
   int height = 170; // 13.12a 170 is exactly in the middle
   int weight = 60; // 15.2a
+  int age = 35; // 15.13a
 
   /* no longer needed as of Step 10
   // 9.2c - 1 = male, 2 = female, change color to other state
@@ -184,6 +185,29 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            // 15.5a
+                            //15.6d create RIB with plus icon
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                // 15.10d
+                                onTapped: () {
+                                  setState(() {
+                                    weight++; // alternative to += 1
+                                  });
+                                }),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              // 15.11
+                              onTapped: () {
+                                setState(() {
+                                  weight--; // alternative to -= 1
+                                });
+                              },
+                            ), //15.9
+                            /* old version - See L-123 halfway commit
                             // 15.3a
                             FloatingActionButton(
                               backgroundColor: Color(0xFF4C4F5E),
@@ -202,7 +226,7 @@ class _InputPageState extends State<InputPage> {
                                 Icons.remove,
                                 color: Colors.white,
                               ),
-                            ),
+                            ), */
                           ],
                         ),
                       ],
@@ -212,6 +236,69 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColour,
+                    // 15.13b
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        // 15.2b display weight var
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        // 15.3
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            // 15.5a
+                            //15.6d create RIB with plus icon
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                // 15.10d
+                                onTapped: () {
+                                  setState(() {
+                                    age++; // alternative to += 1
+                                  });
+                                }),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              // 15.11
+                              onTapped: () {
+                                setState(() {
+                                  age--; // alternative to -= 1
+                                });
+                              },
+                            ), //15.9
+                            /* old version - See L-123 halfway commit
+                            // 15.3a
+                            FloatingActionButton(
+                              backgroundColor: Color(0xFF4C4F5E),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                            // 15.3b
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            FloatingActionButton(
+                              backgroundColor: Color(0xFF4C4F5E),
+                              child: Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              ),
+                            ), */
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -225,6 +312,32 @@ class _InputPageState extends State<InputPage> {
             height: kBottomContainerHeight,
           ),
         ],
+      ),
+    );
+  }
+}
+
+// 15.4
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({@required this.icon, @required this.onTapped}); // 15.8b constr for child & 15.10b
+  final IconData icon; // 15.8a IconDATA, not just Icon
+  final Function onTapped; // 15.10a
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: Icon(icon), //15.8c
+      //15.7 add elevation-> without onPressed - Button is in disabled state!! add empty onPressed()
+      onPressed: onTapped, // 15.10c
+      elevation: 6.0, // 15.6
+      shape: CircleBorder(), // make it round
+      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)), // alternate rounded rect look for
+      // button
+      fillColor: Color(0xFF4C4f5E),
+      // 15.6 add Size constraint as per RawMaterialButton implementation (just copy from there)
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
       ),
     );
   }
