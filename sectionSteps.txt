@@ -131,3 +131,11 @@ Task: build final Row with two cards by building own Widgets
 15.13 add Age card func to last card
 15.13 (a) - add age var
 15.13 (b) copy and paste column of WEIGHT card and change all weight to age
+
+16. L-124 Routes and Navigation - Multi-screen Apps
+16.1 create results_page.dart, import material package, create stateless Widget ResultsPage
+16.2 add child Text('CALCULATE') to bottom Container on input_page.dart
+16.3 wrap container with GestureDetector
+16.4 create route for onTap:
+16.4 (a) - import results_page.dart in input_page.dart
+16.4 (b) - add Navigation.push() to GestureDetector

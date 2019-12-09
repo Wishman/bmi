@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart'; //8.1b
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart'; // 13.2d
+import 'results_page.dart'; // 16.4a
 
 enum Gender { male, female } // 10.1 add enum for gender
 
@@ -275,26 +276,6 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ), //15.9
-                            /* old version - See L-123 halfway commit
-                            // 15.3a
-                            FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
-                            ),
-                            // 15.3b
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
-                              child: Icon(
-                                Icons.remove,
-                                color: Colors.white,
-                              ),
-                            ), */
                           ],
                         ),
                       ],
@@ -305,11 +286,20 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           // add lower button
-          Container(
-            color: kBottomContainerColour,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+
+          // 16.3 wrap Container in GestureDetector and add route
+          GestureDetector(
+            // 16.4b ResultsPage is classname not filename!!!!
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
+            },
+            child: Container(
+              child: Text('CALCULATE'), // 16.2
+              color: kBottomContainerColour,
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+            ),
           ),
         ],
       ),
