@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; //8.1b
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart'; // 13.2d
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../constants.dart'; // 13.2d
 import 'results_page.dart'; // 16.4a
+import 'package:bmi_calculator/components/bottom_button.dart'; // 17.11(e)
+import 'package:bmi_calculator/components/round_icon_button.dart';
 
 enum Gender { male, female } // 10.1 add enum for gender
 
@@ -287,47 +289,17 @@ class _InputPageState extends State<InputPage> {
           ),
           // add lower button
 
-          // 16.3 wrap Container in GestureDetector and add route
-          GestureDetector(
-            // 16.4b ResultsPage is classname not filename!!!!
+          BottomButton(
+            // 17.11(d)
+            buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
+              Navigator.push(
+                  context,
+                  // 16.4b ResultsPage is classname not filename!!!!
+                  MaterialPageRoute(builder: (context) => ResultsPage()));
             },
-            child: Container(
-              child: Text('CALCULATE'), // 16.2
-              color: kBottomContainerColour,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-            ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-// 15.4
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({@required this.icon, @required this.onTapped}); // 15.8b constr for child & 15.10b
-  final IconData icon; // 15.8a IconDATA, not just Icon
-  final Function onTapped; // 15.10a
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(icon), //15.8c
-      //15.7 add elevation-> without onPressed - Button is in disabled state!! add empty onPressed()
-      onPressed: onTapped, // 15.10c
-      elevation: 6.0, // 15.6
-      shape: CircleBorder(), // make it round
-      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)), // alternate rounded rect look for
-      // button
-      fillColor: Color(0xFF4C4f5E),
-      // 15.6 add Size constraint as per RawMaterialButton implementation (just copy from there)
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
       ),
     );
   }

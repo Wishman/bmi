@@ -139,3 +139,33 @@ Task: build final Row with two cards by building own Widgets
 16.4 create route for onTap:
 16.4 (a) - import results_page.dart in input_page.dart
 16.4 (b) - add Navigation.push() to GestureDetector
+
+17. L-125: tidy-up input_page and add Widgets to results_page
+17.1 format calculate button: (a) const kLargeButton in constants.dart, (b) apply styleConstant in input_page
+17.2 center text by wrapping in a center widget
+17.3 as text is too close to bottom for some phones (e.g. iPhone) - bring up with padding at bottom
+--- add Title part to result page
+17.4 remove text and add components for page (Column, Expanded, Container, Text, etc.)
+17.5 add textstyle for Title
+17.5 (a) - add const to constants with appropriate style kTitleTextStyle
+17.5 (b) - import constants.dart in results_page.dart
+17.5 (c) - add style to Text()
+--- add Main part to results_page
+17.6 add Widgets (Expanded (flex 5 to take more space), ReusableCard (import first!), Column, 3x Text)
+17.7 (a) - add const to constants.dart with appropriate style kResultTextStyle, (b) add const to style
+17.8 add crossAxisAlignment to stretch Column across screen
+17.9 (a) add second text widget for bmi reading, (b) with const Style kBMITextStyle, (c) add style to Text()
+17.10 (a) add Interpretation Text Widget, (b) add kBodyTextStyle to const.dart, (c) add style to Text()
+17.10 (d) add TextAlign.center
+--- 17.11 - add bottom button
+17.11 (a) extract GestureDetector Widget in input_page.dart with Children to BottomButton, delete Constr
+17.11 (b) add properties Function onTap, String buttonTitle
+17.11 (c) cut-out onTap Navigator.push() and replace with onTap prop, and replace 'CALCULATE with ButtonTitle prop'
+17.11 (d) add props as args to BottomButton call (and delete new keyword)
+17.11 (e) remove BottomButton from input_page into new bottom_button.dart (2 imports in this, 1 in input_page)
+17.11 (f) remove RoundIconButton from input_page into new round_icon_button.dart
+17.11 (g) import bottom_button.dart into results_page
+17.11 (h) add BottomButton in results_page screen and add Navigation.pop() to onTap
+--- 17.12 tweek title of results_page
+17.12 (a) add padding 15
+17.12 (b) add alignment
