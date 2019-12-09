@@ -169,3 +169,22 @@ Task: build final Row with two cards by building own Widgets
 --- 17.12 tweek title of results_page
 17.12 (a) add padding 15
 17.12 (b) add alignment
+
+18. L-127: add calculation logic to BMI Calc
+18.1 add file calculator_brain.dart, add Class CalculatorBrain with props height & weight
+18.2 add bmi calc func calculateBMI()
+18.2 (a) add dart.math to get square func
+18.2 (b) create calculateBMI() func with bmi calculation logic
+18.2 (c) return bmi value as string rounded to 1 decimal
+18.3 create getResult() func that returns the Result part
+18.4 add private prop _bmi and replace bmi in both funcs
+18.5 add getInterpretation() func
+--- in input_page
+18.6 import calculatorBrain
+18.7 call calculation logic from onTap in Calculate Button by instantiating new obj
+18.8 pass over results of calc to result_page with
+18.8 (a) in results_page create final prop bmiResult and resultText and interpretation
+18.8 (b) create constr to handle these props (all named and required)
+18.8 (c) change strings for bmi, resultText and interpretation to receive props
+18.8 (d) add capitalization to textResult
+18.9 in input_page: add bmiResult, resultText and interpretation to Navigator.push()
